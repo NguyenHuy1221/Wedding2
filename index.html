@@ -82,6 +82,7 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+
         outline: 0;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -104,8 +105,11 @@
         transition: none !important;
         animation: none !important;
       }
-      .pageview {
-        overflow: hidden;
+
+      @media (min-width: 768px) {
+        .pageview {
+          overflow: hidden;
+        }
       }
       .lazy {
         background: none !important;
