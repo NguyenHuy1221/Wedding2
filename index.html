@@ -8,34 +8,45 @@
 
     <script async="" src="https://a.pancake.vn/js/app.js?vsn=d"></script>
     
-    <script type="text/javascript">
-      !(function (e, t, i) {
-        var a,
-          n = e.innerWidth;
-        if (
-          ((e[i] = true || n < 768 ? "mobile" : "desktop"), "desktop" == e[i])
-        )
-          a = "width=" + 960 + ", user-scalable=no, initial-scale=1.0";
-        else {
-          var o = 1;
-          w = 420;
-          w != n && (o = n / w),
-            (a =
-              "width=" +
-              w +
-              ", user-scalable=no, initial-scale=" +
-              o +
-              ", minimum-scale=" +
-              o +
-              ", maximum-scale=" +
-              o);
-        }
-        var l = t.createElement("meta");
-        (l.name = "viewport"),
-          l.setAttribute("content", a),
-          t.head.appendChild(l);
-      })(window, document, "DISPLAY");
-    </script>
+   <script type="text/javascript">
+  (function (window, document) {
+    var screenWidth = window.innerWidth;
+    var designWidth = 400; // chiều rộng thiết kế của bạn
+    var scale = screenWidth / designWidth;
+
+    // Giới hạn scale trong phạm vi hợp lý
+    if (scale > 1) scale = 1;     // không phóng to
+    if (scale < 0.5) scale = 0.5; // không thu nhỏ quá
+
+    // Nếu là desktop thì dùng viewport chuẩn
+    var content;
+    if (screenWidth >= 768) {
+      content = "width=device-width, initial-scale=1.0";
+      window.DISPLAY = "desktop";
+    } else {
+      content =
+        "width=" +
+        designWidth +
+        ", user-scalable=no, initial-scale=" +
+        scale +
+        ", minimum-scale=" +
+        scale +
+        ", maximum-scale=" +
+        scale;
+      window.DISPLAY = "mobile";
+    }
+
+    // Tạo hoặc cập nhật thẻ meta viewport
+    var meta = document.querySelector("meta[name='viewport']");
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.name = "viewport";
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute("content", content);
+  })(window, document);
+</script>
+
     <meta
       name="viewport"
       content="width=420, user-scalable=no, initial-scale=4.571428571428571, minimum-scale=4.571428571428571, maximum-scale=4.571428571428571"
@@ -1157,7 +1168,7 @@
         top: 0px;
         left: 0px;
         position: relative;
-        width: 420px;
+        width: 100v;
         height: 800px;
       }
       #w-20t4ngj1 .section-wrapper {
@@ -1173,7 +1184,7 @@
       }
       #w-lf6hdy88 {
         top: 135px;
-        left: 166.5000114440918px;
+        left: 150.5000114440918px;
         width: 87px;
         height: 87px;
       }
@@ -1244,7 +1255,7 @@
       }
       #w-i3tjofn6 {
         top: 41.5px;
-        left: 83px;
+        left: 70px;
         width: 254px;
         height: 29.999998092651367px;
       }
@@ -1365,7 +1376,7 @@
       }
       #w-7r4uk9mb {
         top: 178.74999713897705px;
-        left: 312.0166244506836px;
+        left: 295.0166244506836px;
         width: 87px;
         height: 87px;
       }
@@ -3934,6 +3945,9 @@
         -webkit-animation-duration: 3s;
       }
     </style>
+
+
+
     <style type="text/css" media="screen and (max-width: 767px)">
       .section-container {
         max-width: 420px;
@@ -3946,7 +3960,7 @@
         top: 0px;
         left: 0px;
         position: relative;
-        width: 420px;
+        width: 100vw;
         height: 100vh;
       }
       #w-20t4ngj1 .section-wrapper {
@@ -3989,9 +4003,9 @@
       }
       #w-kb6stlwe {
         top: 80px;
-        left: 3.5px;
+        /* left: 3.5px; */
         perspective: 1000px;
-        width: 413px;
+        width: 100vw;
         height: 59.98124694824219px;
       }
       #w-kb6stlwe .text-block {
@@ -4237,8 +4251,8 @@
         top: 0px;
         left: 0px;
         position: relative;
-        width: 420px;
-        height: 714px;
+        width: 100vw;
+        height: 100vh;
       }
       #w-9wu79djo .section-wrapper {
         opacity: 1;
@@ -4646,8 +4660,8 @@
         top: 0px;
         left: 0px;
         position: relative;
-        width: 420px;
-        height: 515px;
+        width: 100vw;
+        height: 100vh;
       }
       #w-0k5qs9kr .section-wrapper {
         opacity: 1;
@@ -4953,8 +4967,8 @@
         top: 0px;
         left: 0px;
         position: relative;
-        width: 420px;
-        height: 605px;
+        width: 100vw;
+        height: 100vh;
       }
       #w-rs50dgw2 .section-wrapper {
         opacity: 1;
@@ -5109,8 +5123,8 @@
         top: 0px;
         left: 0px;
         position: relative;
-        width: 420px;
-        height: 522px;
+        width: 100vw;
+        height: 100vh;
       }
       #w-j6a4d4fc .section-wrapper {
         opacity: 1;
@@ -5291,8 +5305,8 @@
         top: 0px;
         left: 0px;
         position: relative;
-        width: 420px;
-        height: 617px;
+        width: 100vw;
+        height: 100vh;
       }
       #w-4vfmj0g5 .section-wrapper {
         opacity: 1;
@@ -5465,8 +5479,8 @@
         top: 0px;
         left: 0px;
         position: relative;
-        width: 420px;
-        height: 271px;
+        width: 100vw;
+        height: 100vh;
       }
       #w-2dxt38iw .section-wrapper {
         opacity: 1;
@@ -5539,8 +5553,8 @@
         top: 0px;
         left: 0px;
         position: relative;
-        width: 420px;
-        height: 630px;
+        width: 100vw;
+        height: 100vh;
       }
       #w-hcf6fbgo .section-wrapper {
         opacity: 1;
@@ -5555,8 +5569,8 @@
       #w-l2pipleo {
         top: -0.00000762939453125px;
         left: 0px;
-        width: 420px;
-        height: 630px;
+        width: 100vw;
+        height: 100vh;
       }
       #w-l2pipleo .image-block-css {
         border-color: rgba(229, 231, 235, 1);
